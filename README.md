@@ -1,4 +1,4 @@
-# Open-Season
+# Open Season
 The ultimate hunting experience.  
 Based on the Nintedo™ game Duck Hunt  
 
