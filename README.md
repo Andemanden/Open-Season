@@ -1,10 +1,11 @@
 # Open Season
 The ultimate hunting experience.  
-Based on the Nintedo™ game Duck Hunt  
-
+  
+  
 ## Description  
-This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.
-
+This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.  
+Based on the Nintedo™ game Duck Hunt  
+  
 ### Features
 **Maps**    
 * Jungle  
