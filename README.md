@@ -1,6 +1,10 @@
 # Open-Season
-Ultimate pico-8 fps shooter. The ultimate hunting experience.  
+The ultimate hunting experience.  
 Based on the nintedo game Duck Hunt  
+
+**Description**
+This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.
+
 
 **Maps**    
 * Jungle  
