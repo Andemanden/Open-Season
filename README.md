@@ -2,10 +2,10 @@
 The ultimate hunting experience.  
 Based on the Nintedo™ game Duck Hunt  
 
-**Description**  
+## Description  
 This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.
 
-
+### Features
 **Maps**    
 * Jungle  
 * Safari  
@@ -23,6 +23,7 @@ This first person hunting game gives an expirience in pico-8 similar to the game
 * Bird
 * Antilope
 * Lion
-* Pinguen
-* IronSeal
+* Pinguin
+* Iron Seal
 * Polar Bear
+
