@@ -7,3 +7,7 @@ Based on the nintedo game Duck Hunt
 * Safari  
 * Polar  
 
+**Weapons**
+* Double barrel shotgun
+* Single barrel shotgun
+* Rifle
