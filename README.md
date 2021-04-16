@@ -28,3 +28,6 @@ Based on the Nintedo™ game Duck Hunt
 * Iron Seal
 * Polar Bear
 
+## Game Controls  
+
+
