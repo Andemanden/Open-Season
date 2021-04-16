@@ -4,7 +4,7 @@ The ultimate hunting experience.
   
 ## Description  
 This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.  
-Based on the Nintedo™ game Duck Hunt  
+Based on the Nintedo™ game Duck Hunt.  
   
 ### Features
 **Maps**    
@@ -28,3 +28,9 @@ Based on the Nintedo™ game Duck Hunt
 * Iron Seal
 * Polar Bear
 
+## Game Controls  
+```Mouse:```         ```Aim```   
+```Left Click:```    ```Shoot```  
+```Right Click:```    ```Cock```  
+```X / V / M:```          ```Reload```  
+```Arrow Keys:```     ```Menu Navigation```    
