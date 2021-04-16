@@ -29,5 +29,8 @@ Based on the Nintedo™ game Duck Hunt
 * Polar Bear
 
 ## Game Controls  
-```Text here```
-
+```Mouse:```         ```Aim```   
+```Left Click:```    ```Shoot```  
+```Right Click:```    ```Cock```  
+```Arrow Keys:```     ```Menu Navigation```  
+```X / V / M:```          ```Reload```  
