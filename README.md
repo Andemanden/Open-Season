@@ -29,5 +29,5 @@ Based on the Nintedo™ game Duck Hunt
 * Polar Bear
 
 ## Game Controls  
-```Text here
+```Text here```
 
