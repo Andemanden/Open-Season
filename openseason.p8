@@ -1,10 +1,30 @@
 pico-8 cartridge // http://www.pico-8.com
 version 29
 __lua__
-//test
-//test2
-//test3
-//test4
+  -- Open Season --
+-- Martin og Andreas --
+function _init()
+  
+end
+
+function _update()
+ //skifter scene
+ updatestate={
+  [1]=function() return update_menu() end,
+  [2]=function() return update_game() end,
+  [3]=function() return update_win() end,
+  [4]=function() return update_lose() end} //definere scene
+ updatestate[scene]() //bestemmer scene
+end
+
+function _draw()
+ drawstate={
+  [1]=function() return draw_menu() end,
+  [2]=function() return draw_game() end,
+  [3]=function() return draw_win() end,
+  [4]=function() return draw_lose() end }//definere scene
+ drawstate[scene]() //bestemmer scene
+end
 
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
