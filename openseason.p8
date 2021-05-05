@@ -9,7 +9,7 @@ end
 
 function _update()
  //skifter scene
- updatestate={
+ updatescene={
   [1]=function() return update_menu() end,
   [2]=function() return update_game() end,
   [3]=function() return update_win() end,
@@ -18,7 +18,7 @@ function _update()
 end
 
 function _draw()
- drawstate={
+ drawscene={
   [1]=function() return draw_menu() end,
   [2]=function() return draw_game() end,
   [3]=function() return draw_win() end,
