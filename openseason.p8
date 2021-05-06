@@ -4,28 +4,33 @@ __lua__
   -- Open Season --
 -- Martin og Andreas --
 function _init()
-  
+	scene=1
+	init_menu()
 end
 
 function _update()
  //skifter scene
- updatescene={
-  [1]=function() return update_menu() end,
-  [2]=function() return update_game() end,
-  [3]=function() return update_win() end,
-  [4]=function() return update_lose() end} //definere scene
- updatestate[scene]() //bestemmer scene
+	updatescene={
+		[1]=function() return update_scroller() end,
+		[2]=function() return update_menu() end,
+		[3]=function() return update_game() end,
+		[4]=function() return update_win() end,
+		[5]=function() return update_lose() end} //definere scene
+	updatescene[scene]() //bestemmer scene
 end
 
 function _draw()
- drawscene={
-  [1]=function() return draw_menu() end,
-  [2]=function() return draw_game() end,
-  [3]=function() return draw_win() end,
-  [4]=function() return draw_lose() end }//definere scene
- drawstate[scene]() //bestemmer scene
+	drawscene={
+		[1]=function() return draw_scroller() end,
+		[2]=function() return draw_menu() end,
+		[3]=function() return draw_game() end,
+		[4]=function() return draw_win() end,
+		[5]=function() return draw_lose() end }//definere scene
+	drawscene[scene]() //bestemmer scene
 end
 
+-->8
+--scroller og menu--
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
