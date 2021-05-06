@@ -5,7 +5,7 @@ __lua__
 -- Martin og Andreas --
 function _init()
 	scene=1
-	init_menu()
+	
 end
 
 function _update()
@@ -31,6 +31,25 @@ end
 
 -->8
 --scroller og menu--
+       --scroller--
+function update_scroller()
+
+end
+
+
+function draw_scroller()
+
+end
+
+        --menu--
+function update_menu()
+	
+end
+
+
+function draw_menu()
+	
+end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
