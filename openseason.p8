@@ -33,22 +33,41 @@ end
 --scroller og menu--
        --scroller--
 function update_scroller()
+	if time()>3 then scene=2 end
 
 end
 
 
 function draw_scroller()
-
+cls()
+	print("scroller") //test screen
 end
 
         --menu--
 function update_menu()
-	
+	if btn(❎) then scene=3 end
 end
 
 
 function draw_menu()
-	
+cls()
+	print("open season",42,12) 
+end
+-->8
+--game--
+function init_game()
+
+end
+
+
+function update_game()
+
+end
+
+
+function draw_game()
+cls()
+print("game") //test screen
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
