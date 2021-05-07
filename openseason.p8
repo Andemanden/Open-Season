@@ -3,6 +3,7 @@ version 29
 __lua__
   -- Open Season --
 -- Martin og Andreas --
+--and web 
 function _init()
 	scene=1
 	
