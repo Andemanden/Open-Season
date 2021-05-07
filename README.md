@@ -34,3 +34,6 @@ Based on the Nintedo™ game Duck Hunt.
 ```Right Click:```    ```Cock```  
 ```X / V / M:```          ```Reload```  
 ```Arrow Keys:```     ```Menu Navigation```    
+
+## Idéer
+![alt text](https://nerdyteachers.com/PICO-8/resources/img/reference/hidden_palette.png)
