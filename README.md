@@ -40,4 +40,16 @@ Based on the Nintedo™ game Duck Hunt.
 ![alt text](https://nerdyteachers.com/PICO-8/resources/img/reference/hidden_palette.png)
 
 Farve kode: ```pal(col(udskift),col+128,1)```.
+
 https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
+### Kode
+#### Settings print
+```
+draw_options={
+  [1]=function() print() end,
+  [2]=function() print() end,
+  [3]=function() print() end,
+  [4]=function() print() end,
+  [5]=function() print() end,
+  [6]=function() print() end} 
+draw_options[settings]()
