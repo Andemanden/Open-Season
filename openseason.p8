@@ -1,9 +1,9 @@
 pico-8 cartridge // http://www.pico-8.com
 version 29
 __lua__
-  -- Open Season --
+-- Open Season --
 -- Martin og Andreas --
---and web 
+
 function _init()
 	scene=1
 	
@@ -33,7 +33,7 @@ function _draw()
 end
 
 -->8
---scroller og menu--
+--scroller, menu og settings--
        --scroller--
 function update_scroller()
 	if time()>3 then scene=2 end
