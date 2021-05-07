@@ -38,3 +38,4 @@ Based on the Nintedo™ game Duck Hunt.
 ## Idéer
 ![alt text](https://nerdyteachers.com/PICO-8/resources/img/reference/hidden_palette.png)
 pal(col(udskift),col+128,1)
+https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
