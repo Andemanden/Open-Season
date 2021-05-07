@@ -49,16 +49,49 @@ end
         --menu--
 function update_menu()
 	if btn(❎) then scene=3 end
-	
+	if btn(⬅️) then scene=6 end
 end
 
 
 function draw_menu()
 cls()
 	print("open season",44,12) 
-	print("⬇️ for maps and weapons",20,100)
+	print("⬅️ for maps and weapons",20,100)
 	print("press ❎ to start",28,108) 
 end
+       --settings--
+function update_settings()	
+	if btn(➡️) then scene=6 end
+	if btn(⬇️) then settings+=1 end
+	if btn(⬇️) then settings-=1 end
+	if settings>6 then settings=1 end
+	if settings<1 then settings=6 end
+	config={
+		[1]=function() map=0 end,
+		[2]=function() map=128 end,
+		[3]=function() map=256 end,
+		[4]=function() gun=32 end,
+		[5]=function() gun=33 end,
+		[6]=function() gun=34 end} 
+	config[settings]() 
+	
+end
+
+function draw_settings()
+	cls()
+	print("map",18,32)
+	draw_options={
+		[1]=function() print() end,
+		[2]=function() print() end,
+		[3]=function() print() end,
+		[4]=function() print() end,
+		[5]=function() print() end,
+		[6]=function() print() end} 
+	draw_options[settings]() 
+	
+	
+end
+
 -->8
 --game--
 function init_game()
@@ -75,6 +108,12 @@ function draw_game()
 cls()
 print("game") //test screen
 end
+
+
+
+
+
+
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
