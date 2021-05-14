@@ -64,10 +64,19 @@ function draw_menu()
 	pal(6,0+128,1)
 	pal(5,3+128,1)
 	color(7)
-	spr(192,36,8,7,2)
-	spr(224,20,26,11,2)
-	print("⬅️ for settings",30,100,7)
+	spr(192,36,8,7,2) //open
+	spr(224,20,26,11,2) //season
+	print("highscore:"..dget(0),40,44)
+	print("🅾️ for instructions",24,92)
+	print("⬅️ for settings",31,100,7)
 	print("press ❎ to start",28,108,8) 
+	if btn(🅾️) then 
+		cls(10) print("instructions",40,28,7)
+		print("instructions",40,27,8 )
+		print("move mouse to aim",30,42,7)
+		print("press ❎ to shoot",30,50,7)
+		print("press 🅾️ to reload",28,58,7)
+	end
 end
        --settings--
 function init_settings()
@@ -141,6 +150,8 @@ end
 -->8
 --game--
 function init_game()
+
+
 
 end
 
