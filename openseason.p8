@@ -3,12 +3,12 @@ version 29
 __lua__
 -- Open Season --
 -- Martin og Andreas --
+cartdata("persistent")
 
 function _init()
-	scene=1
+	scene=1 //starter ved scorller
 	maps={x=0,y=0}
 	gun={sp=32,x=54,y=118,w=1,h=1}
-	
 end
 
 function _update()
