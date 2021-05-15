@@ -7,6 +7,7 @@ cartdata("persistent")
 menuitem(2,"menu",function() scene=2 init_settings() end)
 
 function _init()
+	poke(0x5f2d, 1)
 	scene=1 //starter ved scorller
 	maps={nr=1,x=0,y=0,sx=0,sy=0}
 	gun={sp=32,x=54,y=118,w=1,h=1}
@@ -153,33 +154,38 @@ end
 -->8
 --game--
 function init_game()
+
 	init_specific={
 		[1]=function() end,
-		[2]=function() end,
+		[2]=function()  end,
 		[3]=function() end}
 	init_specific[maps.nr]()
+birds={} //alle fugle
+land_animals={} //alle land dyr
 
 end
 
 
 function update_game()
+ 
 
 end
 
 
 function draw_game()
 	cls()
-	if maps.nr==1 or maps.nr==2 then
-		pal(12,12+128,1)
-	end
+	draw_specific={
+		[1]=function() pal(12,12+128,1) end,
+		[2]=function() pal(12,12+128,1) end,
+		[3]=function() end}
+	draw_specific[maps.nr]()
+
 	map(maps.x,maps.y,maps.sx,maps.sy,16,16)
 	pal(2,10+128,1)
 	print("game") //test screen
-	
+	spr(32,stat(32)-1,stat(33)-1)
+	print(stat(34))
 end
-
-
-
 
 
 
