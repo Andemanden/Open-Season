@@ -472,11 +472,19 @@ end
 
 -->8
 --animation
-function anim(sp,)
+function anim(sp,w,mx,mn,an_t,an_w)
+	//sp=sprite w=tykkelse
+	//mx=max sp  mn=min sp
+	//an_t=tids var an_w=wait var
+	if time()-an_t>an_w then
+		sp+=w
+		an_t=time()
+		if sp>mx then
+			sp=mn
+		end
+	end
 	
-	if
-	
-	
+	return sp
 end
 __gfx__
 00000000cccccccc8000000000000000000000007708807700788700770880770000000000000000000000000000000000000000000000000000000000000000
