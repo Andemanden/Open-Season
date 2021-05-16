@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
 #### Farver brugt med pall
 Udskiftet - Med farve
 * 12 - 12  (map1 og 2)
-* 11 - 15 (map1)
+* 11 - 6 (map1)
 * 2 - 10 
 * 10 - 4
 * 2 - 6
