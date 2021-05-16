@@ -43,6 +43,16 @@ Farve kode: ```pal(col(udskift),col+128,1)```.
 
 https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
 ### Kode
+#### Farver brugt med pall
+Udskiftet - Med farve
+* 12 - 12  (map1 og 2)
+* 11 - 6 (map1)
+* 2 - 10 
+* 10 - 4
+* 2 - 6
+* 14 - 5
+* 15 - 1
+
 #### Settings print
 ```
 draw_options={
@@ -52,4 +62,5 @@ draw_options={
   [4]=function() print() end,
   [5]=function() print() end,
   [6]=function() print() end} 
-draw_options[settings]()
+draw_options[settings]()```
+
