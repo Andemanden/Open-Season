@@ -160,13 +160,20 @@ end
 --game--
 function init_game()
 	clearpal()
-	init_specific={
-		[1]=function() end,
-		[2]=function()  end,
-		[3]=function() end}
-	init_specific[maps.nr]()
+	
 	birds={} //alle fugle
 	land_animals={} //alle land dyr
+	sight={rl_time=time(),reloaded=true,ready=true}
+	player={kills=0,score=0}
+	init_specific={
+		[1]=function() sight.shots=2 
+			sight.time=2 end,
+		[2]=function() sight.shots=1 
+			sight.time=1 end,
+		[3]=function() sight.shots=1 
+			sight.time=2 end}
+	init_specific[gun.nr]()
+	sight.bullets=sight.shots
 end
 
 --------------dyr-------------
@@ -179,12 +186,14 @@ function add_animal(types,tbl,sprite,lives)
 		,y=102-rnd(38),dx=2-rnd(4)
 		,dy=2-rnd(4),w=2,h=2
 		,lvs=lives,shot=false
-		,flp=false,sitting=false}) 
+		,flp=false,sitting=false
+		,lvs_max=3}) 
 	elseif types=="bird" then
 		add(tbl,{sp=sprite,x=rnd(120)
 			,y=rnd(65),dx=2-rnd(4)
 			,dy=0.5-rnd(1),w=1,h=1,lvs=lives
-			,shot=false,flp=false})
+			,shot=false,flp=false
+			,lvs_max=3})
 	end
 	
 end
@@ -216,7 +225,18 @@ end
 -----collision sigte og dyr----
 function collision()
 	for la in all(land_animals) do
-		collide(la.x,la.t,6,sight.x,sight.y,4)
+		if collide(sight.x,sight.y,4,la.x,la.y,6) then
+			if sight.shoot==true then
+				la.lvs-=1
+				sight.shoot=false
+			end
+		end
+		
+		if la.lvs<1 then 
+			del(land_animals,la) 
+			player.kills+=1
+			player.score+=(1+la.lvs_max)
+		end
 	end
 	
 	for b in all(birds) do
@@ -225,14 +245,46 @@ function collision()
 	
 end
 
+--------sight and reload-------
+function sights()
+	sight.x=stat(32)
+	sight.y=stat(33)
+	
+	if sight.bullets<1 then
+		sight.redy=false
+		sight.reloaded=false
+		sight.bullets=0
+	end
+	
+	if stat(34)==2 then
+		sight.bullets=sight.shots
+		sight.reloaded=true
+		sight.rl_time=time()
+	end
+	if time()-sight.rl_time<sight.time then
+		sight.ready=false
+	elseif time()-sight.rl_time>sight.time
+		and sight.reloaded==true then
+		sight.ready=true
+	end
+	
+	
+	if stat(34)==1 and sight.ready and sight.reloaded then
+		sight.shoot=true
+		sight.bullets-=1
+		sight.ready=false
+		if sight.bullets<0 then 
+		sight.bullets=0 end
+	else sight.shoot=false end
+	
+	
+end
+
 -----------update--------------
 function update_game()
 	move_animal() 
-	sight.x=stat(32)
-	sight.y=stat(33)
-	if stat(34)==1 then sight.shoot=true 
-	else sight.shoot==false end
-	collideanimal()
+	sights()
+	collision()
 	
 	//tilfj dyr
 	if maps.nr==1 or maps.nr==3 then
@@ -272,7 +324,9 @@ function draw_game()
 	rectfill(0,72,128,128,maps.col)
 	--bullets
 	rectfill(8,112,18,126,6)
-	
+	print(sight.bullets,8,8)
+	print(sight.ready,8,16)
+	print(sight.reloaded,8,24)
 	pal(2,10+128,1) //busk groen
 	--tegn dyr
 	pal(10,4+128,1)
@@ -307,6 +361,7 @@ function draw_game()
 	pal(2,6+128,1)
 	pal(14,5+128,1)
 	pal(15,1+128,1)
+	spr(
 end
 
 
