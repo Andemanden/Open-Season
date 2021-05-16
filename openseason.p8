@@ -108,11 +108,11 @@ function update_settings()
 	if btn(❎) and settings>0 and settings<4
 		then config_map[settings]() end
 	config_gun={
-		[4]=function() arrow2=67 gun.sp=32 
+		[4]=function() arrow2=67 gun.sp=76 
 			gun.s=23 gun.nr=1 gun.b=16 end,
-		[5]=function() arrow2=75 gun.sp=33 
+		[5]=function() arrow2=75 gun.sp=156 
 			gun.s=21 gun.nr=2 gun.b=17 end,
-		[6]=function() arrow2=83 gun.sp=34 
+		[6]=function() arrow2=83 gun.sp=72 
 			gun.s=22 gun.nr=3 gun.b=18 end}
 	if btn(❎) and settings>3 and settings<7 
 		then config_gun[settings]() end
@@ -361,7 +361,7 @@ function draw_game()
 	pal(2,6+128,1)
 	pal(14,5+128,1)
 	pal(15,1+128,1)
-	spr(
+	spr(gun.sp,90,40,4,3)
 end
 
 
