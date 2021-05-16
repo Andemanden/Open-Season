@@ -169,7 +169,7 @@ function init_game()
 	land_animals={} //alle land dyr
 end
 
-
+--------------dyr-------------
 function add_animal(types,tbl,sprite,lives)
 	//types=type of animal
 	//tbl=table sp=sprite_nr
@@ -213,10 +213,28 @@ function move_animal()
 	end
 end
 
+-----collision sigte og dyr----
+function collision()
+	for la in all(land_animals) do
+		collide(la.x,la.t,6,sight.x,sight.y,4)
+	end
+	
+	for b in all(birds) do
+		
+	end
+	
+end
+
 -----------update--------------
 function update_game()
 	move_animal() 
+	sight.x=stat(32)
+	sight.y=stat(33)
+	if stat(34)==1 then sight.shoot=true 
+	else sight.shoot==false end
+	collideanimal()
 	
+	//tilfj dyr
 	if maps.nr==1 or maps.nr==3 then
 		if #land_animals<4 then
 			add_animal("land"
@@ -256,7 +274,6 @@ function draw_game()
 	rectfill(8,112,18,126,6)
 	
 	pal(2,10+128,1) //busk groen
-	print("game",1,1) //test screen
 	--tegn dyr
 	pal(10,4+128,1)
 	for la in all(land_animals) do
@@ -276,30 +293,29 @@ function draw_game()
 		end
 	end
 	
-	if stat(34)==0 then //normal
-		spr(gun.s,stat(32)-1,stat(33)-1)
+	--sigte 
+	if sight.shoot==false then //normal
+		spr(gun.s,sight.x,sight.y)
 		spr(gun.b,10,114)
-	elseif stat(34)==1 then //skyd
-		spr(gun.s-16,stat(32)-1,stat(33)-1)
+	elseif sight.shoot==true then //skyd
+		spr(gun.s-16,sight.x,sight.y)
 	else 
 		//reload
 	end
 	
-	
+	--vaaben farver
 	pal(2,6+128,1)
 	pal(14,5+128,1)
 	pal(15,1+128,1)
-	
 end
 
 
-//test
---dyr pal(8,4+128,1)
---guns
+
 
 -->8
 --help functions
 
+---------clear colors----------
 function clearpal()
 	for col=0,16,1 do
 		pal(col,col,1)
@@ -307,6 +323,26 @@ function clearpal()
 	end
 end
 
+----------collision------------
+-----------cirkler-------------
+function collide(sx,sy,sr,ax,ay,ar)
+	// s=gun sight (sigte)
+	// a=animal (dyr)
+	// ba=balances (mellemregninger)
+	ba={radisum=((sr+ar)^2),
+	dist=(((sx-ax)^2)+((sy-ay)^2))}
+	
+	if ba.dist==ba.radisum then 
+		//roer hinanden
+		return false
+	elseif ba.radisum<ba.dist then
+		//roer ikke hinanden
+		return false
+	elseif ba.radisum>ba.dist then
+		//overlapper
+		return true
+	end
+end
 
 
 __gfx__
