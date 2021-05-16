@@ -45,12 +45,12 @@ https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
 ### Kode
 #### Farver brugt med pall
 Udskiftet - Med farve
-12 - 12
-2 - 10
-10 - 4
-2 - 6
-14 - 5
-15 - 1
+12 - 12. 
+2 - 10. 
+10 - 4. 
+2 - 6. 
+14 - 5. 
+15 - 1. 
 
 #### Settings print
 ```
