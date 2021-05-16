@@ -9,8 +9,8 @@ menuitem(2,"menu",function() scene=2 init_settings() end)
 function _init()
 	poke(0x5f2d, 1)
 	scene=1 //starter ved scorller
-	maps={nr=1,x=0,y=0,sx=0,sy=0,col=15}
-	gun={nr=2,sp=33,s=21,x=54,y=118,w=1,h=1,b=17}
+	maps={nr=1,sp=199,x=0,y=0,sx=0,sy=0,col=15}
+	gun={nr=2,sp=156,s=21,x=54,y=118,w=1,h=1,b=17}
 end
 
 function _update()
@@ -100,11 +100,11 @@ function update_settings()
 	if settings<1 then settings=6 end
 	config_map={
 		[1]=function() arrow1=35 maps.x=0 
-			maps.nr=1 maps.col=15 end,
+			maps.nr=1 maps.col=15 maps.sp=199 end,
 		[2]=function() arrow1=43 maps.x=16 
-			maps.nr=2 maps.col=3 end,
+			maps.nr=2 maps.col=3 maps.sp=168 end,
 		[3]=function() arrow1=51 maps.x=32 
-			maps.nr=3 maps.col=7 end} 
+			maps.nr=3 maps.col=7 maps.sp=235 end} 
 	if btn(❎) and settings>0 and settings<4
 		then config_map[settings]() end
 	config_gun={
@@ -220,8 +220,7 @@ function update_game()
 	if maps.nr==1 or maps.nr==3 then
 		if #land_animals<4 then
 			add_animal("land"
-			,land_animals,199,3,false)
-			
+			,land_animals,maps.sp,3,false)
 		end
 	end
 	
@@ -287,7 +286,9 @@ function draw_game()
 	end
 	
 	
-	
+	pal(2,6+128,1)
+	pal(14,5+128,1)
+	pal(15,1+128,1)
 	
 end
 
@@ -295,9 +296,7 @@ end
 //test
 --dyr pal(8,4+128,1)
 --guns
---pal(2,6+128,1)
---pal(14,5+128,1)
---pal(15,1+128,1)
+
 -->8
 --help functions
 
