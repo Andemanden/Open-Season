@@ -360,7 +360,7 @@ function draw_game()
 		spr(gun.s-16,sight.x,sight.y)
 	end
 	
-	--bullets og reload
+	--bullets
 	if gun.nr==1 then 
 		if sight.bullets==2 then
 			spr(gun.b,10,114)
@@ -372,15 +372,22 @@ function draw_game()
 			spr(gun.b,10,114)
 		end
 	end
-	if sight.ready==false and  then
-		print( 
-	end
+	
 	
 	--vaaben farver
 	pal(2,6+128,1)
 	pal(14,5+128,1)
 	pal(15,1+128,1)
 	spr(gun.sp,sight.x,104,4,3)
+	
+	--reload
+	if sight.ready==false 
+		and sight.reloaded==false then
+		print("reload",sight.x+3,117,8)
+	elseif sight.ready==false
+		and sight.reloaded==true then
+		print("reloading",sight.x,117,9)
+	end
 end
 
 --pal(10,11+128,1)
@@ -417,6 +424,45 @@ function collide(sx,sy,sr,ax,ay,ar)
 		//overlapper
 		return true
 	end
+end
+
+
+-->8
+--effects
+function explode(x,y,r,c_table,num)
+	for i=0, num do
+	--settings
+	add_fx(
+		x,         -- x
+		y,         -- y
+		30+rnd(25),-- die
+		rnd(2)-1,  -- dx
+		rnd(2)-1,  -- dy
+		false,     -- gravity
+		false,     -- grow
+		true,      -- shrink
+		r,         -- radius
+		c_table    -- color_table
+		)
+	end
+end
+
+function add_fx(x,y,die,dx,dy,grav,grow,shrink,r,c_table)
+	local fx={
+		x=x,
+		y=y,
+	t=0,
+	die=die,
+	dx=dx,
+	dy=dy,
+	grav=grav,
+	grow=grow,
+	shrink=shrink,
+	r=r,
+	c=0,
+	c_table=c_table
+	}
+	add(effects,fx)
 end
 
 
