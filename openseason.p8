@@ -175,6 +175,7 @@ function init_game()
 			sight.time=2 end}
 	init_specific[gun.nr]()
 	sight.bullets=sight.shots
+	
 end
 
 --------------dyr-------------
@@ -332,13 +333,18 @@ function draw_game()
 	draw_specific[maps.nr]()
 	--jorden
 	rectfill(0,72,128,128,maps.col)
+	--sprites (buske o.s.v.)
+	for s=0,8,1 do 
+	 spr(8,120-rnd(114),106-rnd(34))
+	end
+	
 	--bullets
 	rectfill(8,112,18,126,6)
 	print(sight.bullets,8,8)
 	print(sight.ready,8,16)
 	print(sight.reloaded,8,24)
 	pal(2,10+128,1) //busk groen
-	--tegn dyr
+	--tegn dyr og liv
 	pal(10,4+128,1)
 	for la in all(land_animals) do
 		spr(la.sp,la.x,la.y,la.w,la.h,la.flp)
@@ -348,7 +354,7 @@ function draw_game()
 			print("♥",la.x+life_x-10,la.y-4,8)
 		end
 	end
-	
+
 	for b in all(birds) do
 		spr(b.sp,b.x,b.y,b.w,b.h,b.flp)
 		life_x=0
