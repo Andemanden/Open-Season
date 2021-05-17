@@ -100,11 +100,14 @@ function update_settings()
 	if settings<1 then settings=6 end
 	config_map={
 		[1]=function() arrow1=35 maps.x=0 
-			maps.nr=1 maps.col=11 maps.sp=199 end,
+			maps.nr=1 maps.col=11 maps.sp=201 
+			end,
 		[2]=function() arrow1=43 maps.x=16 
-			maps.nr=2 maps.col=3 maps.sp=168 end,
+			maps.nr=2 maps.col=3 maps.sp=168 
+			end,
 		[3]=function() arrow1=51 maps.x=32 
-			maps.nr=3 maps.col=7 maps.sp=235 end} 
+			maps.nr=3 maps.col=7 maps.sp=235 
+			end} 
 	if btn(❎) and settings>0 and settings<4
 		then config_map[settings]() end
 	config_gun={
@@ -189,13 +192,13 @@ function add_animal(types,tbl,sprite,lives)
 		,dy=2-rnd(4),w=2,h=2
 		,lvs=lives,shot=false
 		,flp=false,sitting=false
-		,lvs_max=3}) 
+		,lvs_max=3,an_t=time()}) 
 	elseif types=="bird" then
 		add(tbl,{sp=sprite,x=rnd(120)
 			,y=rnd(65),dx=2-rnd(4)
 			,dy=0.5-rnd(1),w=1,h=1,lvs=lives
 			,shot=false,flp=false
-			,lvs_max=3})
+			,lvs_max=3,an_t=time()})
 	end
 	
 end
@@ -322,6 +325,8 @@ function update_game()
 			,land_animals,136,3,false)
 		end
 	end
+	
+	
 end
 
 
@@ -348,13 +353,22 @@ function draw_game()
 	//fjern foer aflevering
 	print(sight.bullets,120,9)
 	print(sight.ready,120,16)
-	print(sight.reloaded,120,24)
 	
 	--pal(2,10+128,1) //busk groen
 	--tegn dyr og liv
 	--pal(10,4+128,1)
 	for la in all(land_animals) do
 		spr(la.sp,la.x,la.y,la.w,la.h,la.flp)
+		if maps.nr==1 then
+			la.sp=anim(la.sp,2,maps.sp+4,maps.sp+2,la.an_t,0.5)[1]
+			la.an_t=anim(la.sp,2,maps.sp+4,maps.sp+2,la.an_t,0.5)[2]
+		elseif maps.nr==2 then
+			la.sp=anim(la.sp,2,170,168,la.an_t,0.5)[1]
+			la.an_t=anim(la.sp,2,170,168,la.an_t,0.5)[2]
+		elseif maps.nr==3 then
+			la.sp=anim(la.sp,2,maps.sp+2,maps.sp,la.an_t,0.5)[1]
+			la.an_t=anim(la.sp,2,maps.sp+2,maps.sp,la.an_t,0.5)[2]
+		end
 		life_x=0
 		for lvs=1,la.lvs,1 do
 			life_x+=6
@@ -363,6 +377,8 @@ function draw_game()
 	end
 
 	for b in all(birds) do
+		b.sp=anim(b.sp,1,143,141,b.an_t,0.1)[1]
+		b.an_t=anim(b.sp,1,143,141,b.an_t,0.1)[2]
 		spr(b.sp,b.x,b.y,b.w,b.h,b.flp)
 		life_x=0
 		for lvs=1,b.lvs,1 do
@@ -507,7 +523,7 @@ function anim(sp,w,mx,mn,an_t,an_w)
 		end
 	end
 	
-	return sp
+	return {[1]=sp,[2]=an_t}
 end
 __gfx__
 00000000cccccccc800000000000000000000000770880770078870077088077333333333333333300000000a17aa71c33333333333333333333333333333333
@@ -608,8 +624,8 @@ ac77777777777777aac777777777777777777777ac77777777777777777777770007747477000000
 ac7777777777777acc7777777777777777777777ac777777777777777777777700040004000000000000040004000000000051fffffffff5fffffffff1500000
 00bbbbbbb300000bbbbbbbbb3000bbbbbbb3000bbb33000bbb330000000444444000000000044444400004000004444440000000000000000000000000000000
 0bbbbbbbbb30000bbbbbbbbbb300bbbbbbb3300bbb33000bbb330000044444444440040004444444444090000444444444400000000000000000000000000000
-bbbbbbbbbbb3000bbbbbbbbbb330bbbbbbb3300bbbb3300bbb330000449944449944900044994444994409004499444499440000000000000000000000000000
-bbb33333bbb3300bbb33333bb330bb333333300bbbbb330bbb330000449799997944090044979999794409004497999979440000000000000000000000000000
+bbbbbbbbbbb3000bbbbbbbbbb330bbbbbbb3300bbbb3300bbb330000449944449944900044994444994409004499444499440400000000000000000000000000
+bbb33333bbb3300bbb33333bb330bb333333300bbbbb330bbb330000449799997944090044979999794409004497999979449000000000000000000000000000
 bbb33333bbb3300bbb30000bb330bb333333300bbbbbb33bbb330000444999999444090044499999944409004449999994440900000000000000000000000000
 bbb33000bbb3300bbbbbbbbbb330bb330000000bbbbbbb3bbb3300004499c99c994499004499c99c994499004499c99c99449900000000000000000000000000
 bbb33000bbb3300bbbbbbbbb3330bbbbbb30000bbb3bbbbbbb3300004499c99c994499004499c99c994499004499c99c99449900000000000000000000000000
