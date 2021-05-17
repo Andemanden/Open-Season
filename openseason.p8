@@ -9,7 +9,7 @@ menuitem(2,"menu",function() scene=2 init_settings() end)
 function _init()
 	poke(0x5f2d, 1)
 	scene=1 //starter ved scorller
-	maps={nr=1,sp=199,x=0,y=0,sx=0,sy=0,col=11}
+	maps={nr=1,sp=201,x=0,y=0,sx=0,sy=0,col=11}
 	gun={nr=2,sp=156,s=21,x=54,y=118,w=1,h=1,b=17}
 end
 
@@ -85,13 +85,13 @@ function draw_menu()
 end
        --settings--
 function init_settings()
-	settings=1 //standard markeret
+	settings=1
 	--standard map
 	arrow1=35
 	--standard gun
 	arrow2=75 
 end
-       
+        
 function update_settings()
 	if btn(➡️) then scene=2 end
 	if btnp(⬇️) then settings+=1 end
@@ -298,7 +298,7 @@ function sights()
 		sight.bullets=0 end
 	else sight.shoot=false end
 	
-	
+
 end
 
 -----------update--------------
@@ -308,11 +308,9 @@ function update_game()
 	collision()
 	
 	//tilfoj dyr
-	if maps.nr==1 or maps.nr==3 then
-		if #land_animals<4 then
-			add_animal("land"
-			,land_animals,maps.sp,3,false)
-		end
+	if #land_animals<4 then
+		add_animal("land"
+		,land_animals,maps.sp,3,false)
 	end
 	
 	if maps.nr==2 then
@@ -320,15 +318,9 @@ function update_game()
 			add_animal("bird"
 			,birds,141,3,false)
 		end
-		if #land_animals<2 then
-		add_animal("land"
-			,land_animals,136,3,false)
-		end
 	end
 	
-	
 end
-
 
 
 
@@ -360,8 +352,8 @@ function draw_game()
 	for la in all(land_animals) do
 		spr(la.sp,la.x,la.y,la.w,la.h,la.flp)
 		if maps.nr==1 then
-			la.sp=anim(la.sp,2,maps.sp+4,maps.sp+2,la.an_t,0.5)[1]
-			la.an_t=anim(la.sp,2,maps.sp+4,maps.sp+2,la.an_t,0.5)[2]
+			la.sp=anim(la.sp,2,maps.sp+2,maps.sp,la.an_t,0.5)[1]
+			la.an_t=anim(la.sp,2,maps.sp+2,maps.sp,la.an_t,0.5)[2]
 		elseif maps.nr==2 then
 			la.sp=anim(la.sp,2,170,168,la.an_t,0.5)[1]
 			la.an_t=anim(la.sp,2,170,168,la.an_t,0.5)[2]
@@ -515,16 +507,18 @@ function anim(sp,w,mx,mn,an_t,an_w)
 	//sp=sprite w=tykkelse
 	//mx=max sp  mn=min sp
 	//an_t=tids var an_w=wait var
+	local sprite=sp
 	if time()-an_t>an_w then
-		sp+=w
+		sprite+=w
 		an_t=time()
-		if sp>mx then
-			sp=mn
+		if sprite>mx then
+			sprite=mn
 		end
 	end
 	
-	return {[1]=sp,[2]=an_t}
+	return {[1]=sprite,[2]=an_t}
 end
+
 __gfx__
 00000000cccccccc800000000000000000000000770880770078870077088077333333333333333300000000a17aa71c33333333333333333333333333333333
 00000000cccccccc88000000000000000000000070088007070880707000000732333333333333330000000017aaaa7133333333333333333333333222223333
