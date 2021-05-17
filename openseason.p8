@@ -176,6 +176,14 @@ function init_game()
 	init_specific[gun.nr]()
 	sight.bullets=sight.shots
 	
+	sprites={{sp=8,x=120-rnd(120),y=106-rnd(34),w=1,h=1}
+	,{sp=24,x=120-rnd(120),y=106-rnd(34),w=1,h=1}
+	,{sp=26,x=120-rnd(120),y=106-rnd(34),w=1,h=1}
+	,{sp=9,x=120-rnd(120),y=106-rnd(34),w=1,h=1}
+	,{sp=25,x=120-rnd(120),y=106-rnd(34),w=1,h=1}
+	,{sp=12,x=120-rnd(120),y=106-rnd(34),w=2,h=4}
+	,{sp=14,x=120-rnd(120),y=106-rnd(34),w=2,h=4}
+	}
 end
 
 --------------dyr-------------
@@ -250,7 +258,7 @@ function collision()
 		if b.lvs<1 then 
 			del(birds,b) 
 			player.kills+=1
-			player.score+=(1+bird.lvs_max)
+			player.score+=(1+b.lvs_max)
 		end
 	end
 end
@@ -334,9 +342,9 @@ function draw_game()
 	--jorden
 	rectfill(0,72,128,128,maps.col)
 	--sprites (buske o.s.v.)
-	for s=0,8,1 do 
-	 spr(8,120-rnd(114),106-rnd(34))
-	end
+	//for s in sprites do 
+	// spr(s.sp,s.x,s.y)
+	//end
 	
 	--bullets
 	rectfill(8,112,18,126,6)
