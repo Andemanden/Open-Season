@@ -537,7 +537,10 @@ end
 
 --animation af skud
 function curve()
-
+ k +=0.07
+	local x_skud = abs(sin(k))
+	local y_skud = abs(sin(k))
+	return {x_skud,y_skud}
 end 
 
 __gfx__
