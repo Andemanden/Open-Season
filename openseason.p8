@@ -178,7 +178,7 @@ function init_game()
 			sight.time=2 end} //specifikt for vaaben nr
 	init_specific[gun.nr]()
 	sight.bullets=sight.shots 
-	
+	shake={kraft=0,t=time()}
 end
 
 --------------dyr-------------
@@ -294,6 +294,17 @@ function sights()
 		sight.bullets-=1
 		sight.ready=false
 		sight.wait=time()
+		if gun.nr==1 then
+			sfx(00) shake.kraft=2
+			shake.t=time()
+		elseif gun.nr==2 then
+			sfx(01) shake.kraft=2
+			shake.t=time()
+		elseif gun.nr==3 then
+			sfx(02) shake.kraft=1
+			shake.t=time()
+		end
+		
 		if sight.bullets<0 then 
 		sight.bullets=0 end
 	else sight.shoot=false end
@@ -319,6 +330,8 @@ function update_game()
 		end
 	end
 	
+	
+	
 end
 
 
@@ -337,7 +350,8 @@ function draw_game()
 		[3]=function() pal(10,12+128,1)
 		pal(2,1+128,1) end} //per map
 	draw_specific[maps.nr]()
-	
+	--camera
+	camera(maps.x,shaking(0))
 	--tegn dyr og liv
 	for la in all(land_animals) do
 		spr(la.sp,la.x,la.y,la.w,la.h,la.flp)
@@ -450,6 +464,18 @@ function collide(sx,sy,sr,ax,ay,ar)
 	end
 end
 
+----------shake effect---------
+function shaking(n)
+	//n=normal shake
+	
+	if time()-shake.t>0.5 then
+		cam_y=n
+	else
+		cam_y=rnd(2)*shake.kraft 
+	end
+	
+	return cam_y
+end
 
 -->8
 --effects
