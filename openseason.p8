@@ -352,7 +352,7 @@ function draw_game()
 		pal(2,1+128,1) end} //per map
 	draw_specific[maps.nr]()
 	--camera
-	camera(maps.x,shaking(0))
+	camera(0,shaking(0))
 	--tegn dyr og liv
 	for la in all(land_animals) do
 		spr(la.sp,la.x,la.y,la.w,la.h,la.flp)
