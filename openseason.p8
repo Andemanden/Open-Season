@@ -279,6 +279,7 @@ function sights()
 		sight.bullets=sight.shots
 		sight.reloaded=true
 		sight.rl_time=time()
+		curve()
 	end
 	--reload tid
 	if time()-sight.rl_time<sight.time then
@@ -533,6 +534,11 @@ function anim(sp,w,mx,mn,an_t,an_w)
 	
 	return {[1]=sprite,[2]=an_t}
 end
+
+--animation af skud
+function curve()
+
+end 
 
 __gfx__
 00000000cccccccc800000000000000000000000770880770078870077088077ddddddddddddddddcccccccca17aa71c33333333333333333333333333333333
