@@ -2,7 +2,7 @@ pico-8 cartridge // http://www.pico-8.com
 version 29
 __lua__
 -- Open Season --
--- Martin og Andreas --
+-- by Martin og Andreas --
 cartdata("persistent")
 menuitem(2,"menu",function() scene=2 init_settings() end)
 
@@ -518,43 +518,6 @@ function shaking(n)
 end
 
 -->8
---effects
-function explode(x,y,r,c_table,num)
-	for i=0, num do
-	--settings
-	add_fx(
-		x,         -- x
-		y,         -- y
-		30+rnd(25),-- die
-		rnd(2)-1,  -- dx
-		rnd(2)-1,  -- dy
-		false,     -- gravity
-		false,     -- grow
-		true,      -- shrink
-		r,         -- radius
-		c_table    -- color_table
-		)
-	end
-end
-
-function add_fx(x,y,die,dx,dy,grav,grow,shrink,r,c_table)
-	local fx={
-		x=x,
-		y=y,
-	t=0,
-	die=die,
-	dx=dx,
-	dy=dy,
-	grav=grav,
-	grow=grow,
-	shrink=shrink,
-	r=r,
-	c=0,
-	c_table=c_table
-	}
-	add(effects,fx)
-end
-
 
 -->8
 --animation af figure
