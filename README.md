@@ -1,4 +1,4 @@
-# Open Season ![lng][lng-image]
+# Open Season ![lang][lng-image]
 The ultimate hunting experience.  
   
   
