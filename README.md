@@ -5,7 +5,9 @@ The ultimate hunting experience.
 ## Description  
 This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.  
 Based on the Nintedo™ game Duck Hunt.  
-  
+
+[lng-image]: https://img.shields.io/badge/LNG-Lua-orange
+
 ### Features
 **Maps**    
 * Jungle  
@@ -65,7 +67,7 @@ draw_options={
 draw_options[settings]()```
 
 
-[lng-image]: https://img.shields.io/badge/LNG-Lua-orange
+
 
 
 
