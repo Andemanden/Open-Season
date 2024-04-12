@@ -7,7 +7,7 @@ This first person hunting game gives an expirience in pico-8 similar to the game
 Based on the Nintedo™ game Duck Hunt.  
 
 [lng-image]: https://img.shields.io/badge/LNG-Lua-orange
-[project-image]: https://img.shields.io/badge/Proj-Game_Dev-orange
+[project-image]: https://img.shields.io/badge/Proj-Game_Dev-blue
 
 ### Features
 **Maps**    
