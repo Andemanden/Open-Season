@@ -1,4 +1,4 @@
-# Open Season
+# Open Season ![lng][lng-image]
 The ultimate hunting experience.  
   
   
@@ -63,4 +63,10 @@ draw_options={
   [5]=function() print() end,
   [6]=function() print() end} 
 draw_options[settings]()```
+
+
+[lng-image]: https://img.shields.io/badge/LNG-Lua-orange
+
+
+
 
