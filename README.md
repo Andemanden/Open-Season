@@ -1,4 +1,4 @@
-# Open Season ![lang][lng-image] ![proj][project-image]
+# Open Season ![lang][lng-image] ![proj][project-image] ![Lecture][Lecture-image]
 The ultimate hunting experience.  
   
   
@@ -8,6 +8,7 @@ Based on the Nintedo™ game Duck Hunt.
 
 [lng-image]: https://img.shields.io/badge/LNG-Lua-orange
 [project-image]: https://img.shields.io/badge/Proj-Game_Dev-blue
+[Lecture-image]: https://img.shields.io/badge/Lecture-Programmering_C-brown
 
 ### Features
 **Maps**    
