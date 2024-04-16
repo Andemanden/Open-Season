@@ -1,7 +1,7 @@
 # Open Season ![lang][lng-image] ![proj][project-image] ![Lecture][Lecture-image] ![Year][Year-image]
 > The ultimate hunting experience.  
   
-![Logo](logo.png)  
+![Logo](Logo.png)  
 
 ## Description  
 This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.  
