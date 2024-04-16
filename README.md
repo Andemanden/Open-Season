@@ -1,7 +1,8 @@
-# Open Season ![lang][lng-image] ![proj][project-image] ![Lecture][Lecture-image]
-The ultimate hunting experience.  
+# Open Season ![lang][lng-image] ![proj][project-image] ![Lecture][Lecture-image] ![Year][Year-image]
+> The ultimate hunting experience.  
   
-  
+![Logo](logo.png)  
+
 ## Description  
 This first person hunting game gives an expirience in pico-8 similar to the game Duck Hunt.  
 Based on the Nintedo™ game Duck Hunt.  
@@ -9,6 +10,7 @@ Based on the Nintedo™ game Duck Hunt.
 [lng-image]: https://img.shields.io/badge/LNG-Lua-orange
 [project-image]: https://img.shields.io/badge/Proj-Game_Dev-blue
 [Lecture-image]: https://img.shields.io/badge/Lecture-Programmering_C-brown
+[Year-image]: https://img.shields.io/badge/Year-2021-green
 
 ### Features
 **Maps**    
@@ -39,13 +41,14 @@ Based on the Nintedo™ game Duck Hunt.
 ```X / V / M:```          ```Reload```  
 ```Arrow Keys:```     ```Menu Navigation```    
 
+
+
 ## Idéer
 ### Skjulte Farver
 ![alt text](https://nerdyteachers.com/PICO-8/resources/img/reference/hidden_palette.png)
 
 Farve kode: ```pal(col(udskift),col+128,1)```.
 
-https://www.youtube.com/watch?v=AsVzk6kCAJY&ab_channel=LazyDevs
 ### Kode
 #### Farver brugt med pall
 Udskiftet - Med farve
